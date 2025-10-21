@@ -4,34 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Hostels - Student Management System</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Uni-Portal</h2>
-        <nav>
-            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="students.html"><i class="fa-solid fa-user-graduate"></i> Students</a>
-            <a href="courses.html"><i class="fa-solid fa-book"></i> Courses</a>
-            <a href="instructors.html"><i class="fa-solid fa-chalkboard-user"></i> Instructors</a>
-            <a href="departments.html"><i class="fa-solid fa-building-columns"></i> Departments</a>
-            <a href="hostels.html" class="active"><i class="fa-solid fa-hotel"></i> Hostels</a>
-        </nav>
-    </div>
-    <div class="main-content">
-        <header>
-            <button id="sidebar-toggle" class="sidebar-toggle-btn"><i class="fa-solid fa-bars"></i></button>
-            <h1>Manage Hostels</h1>
-        </header>
-        
-        <div class="controls-container">
-            <div class="search-card">
-                <input type="text" id="search-input" placeholder="Search by hostel name...">
-                <button class="btn btn-primary" onclick="renderHostels(true)"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-            </div>
-            <button class="btn btn-primary add-button" onclick="openFormForAdd()"><i class="fa-solid fa-plus"></i> Add New Hostel</button>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">SMS</div>
+        <ul class="sidebar-nav">
+            <li><a href="index.html" id="nav-home"><i class="fa-solid fa-house-chimney fa-fw"></i> Home</a></li>
+            <li><a href="students.html" id="nav-students"><i class="fa-solid fa-user-graduate fa-fw"></i> Students</a></li>
+            <li><a href="courses.html" id="nav-courses"><i class="fa-solid fa-book fa-fw"></i> Courses</a></li>
+            <li><a href="departments.html" id="nav-departments"><i class="fa-solid fa-building-columns fa-fw"></i> Departments</a></li>
+            <li><a href="instructors.html" id="nav-instructors"><i class="fa-solid fa-chalkboard-user fa-fw"></i> Instructors</a></li>
+            <li><a href="hostels.html" id="nav-hostels" class="active"><i class="fa-solid fa-hotel fa-fw"></i> Hostels</a></li>
+            <li><a href="enrollments.html" id="nav-enrollments"><i class="fa-solid fa-list-check fa-fw"></i> Enrollments</a></li>
+        </ul>
+    </aside>
+
+    <main class="page-content">
+        <div class="view-header">
+            <h2>Hostels</h2>
         </div>
+
+        <div class="search-card">
+            <input type="text" id="search-input" placeholder="Search by hostel name...">
+            <button class="btn btn-primary" onclick="renderHostels(true)"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+        <button class="btn btn-primary add-button" onclick="openFormForAdd()"><i class="fa-solid fa-plus"></i> Add New Hostel</button>
 
         <div class="card table-container">
             <table id="data-table">
@@ -39,28 +42,26 @@
                 <tbody id="data-list"></tbody>
             </table>
         </div>
-    </div>
+    </main>
 
     <div id="form-modal" class="modal-backdrop">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="modal-title">Add Hostel</h3>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <button class="close-btn" onclick="closeModal()">×</button>
             </div>
-            <form id="data-form" class="modal-form">
+            <form id="data-form">
                 <input type="hidden" id="hostel-id">
                 <label for="hostel-name">Hostel Name</label><input type="text" id="hostel-name" required>
                 <label for="hostel-capacity">Capacity</label><input type="number" id="hostel-capacity" required>
                 <label for="hostel-warden">Warden</label><select id="hostel-warden" required></select>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Save</button>
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
             </form>
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/hostels.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

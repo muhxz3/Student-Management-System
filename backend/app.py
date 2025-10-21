@@ -7,13 +7,13 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Securely load database configuration from environment variables
+# Database configuration
 db_config = {
-    'host': os.getenv('DB_HOST'),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD'),
-    'port': int(os.getenv('DB_PORT')),
-    'database': os.getenv('DB_DATABASE')
+    'host': 'maglev.proxy.rlwy.net',
+    'user': 'root',
+    'password': 'IeOYttKlkONJpfuPBNMLOAhEBbJYOWIY',
+    'port': 27763,
+    'database': 'stud_man_sys'
 }
 
 table_map = {
