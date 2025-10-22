@@ -55,7 +55,7 @@ async function renderStudents(isSearch = false) {
                 <td>${item.student_name}</td>
                 <td>${item.email}</td>
                 <td>${item.gender}</td>
-                <td>${item.hostel_id || 'Not Assigned'}</td>
+                <td>${item.hostel_id || 'NIL'}</td>
                 <td class="actions">
                     <button class="btn btn-edit" onclick='openFormForEdit(${JSON.stringify(item)})'><i class="fa-solid fa-pencil"></i></button>
                     <button class="btn btn-danger" onclick="deleteItem(${item.student_id})"><i class="fa-solid fa-trash"></i></button>
